@@ -19,7 +19,7 @@
   </defs>
 
   <!-- Glow behind text -->
-  <text x="20" y="210"
+  <text x="30" y="210"
         font-family="Poppins, Segoe UI, sans-serif"
         font-size="120"
         font-weight="800"
@@ -30,7 +30,7 @@
   </text>
 
   <!-- White foreground text -->
-  <text x="20" y="210"
+  <text x="30" y="210"
         font-family="Poppins, Segoe UI, sans-serif"
         font-size="120"
         font-weight="900"

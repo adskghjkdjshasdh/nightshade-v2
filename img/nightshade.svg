@@ -32,7 +32,7 @@
   <!-- White foreground text -->
   <text x="20" y="210"
         font-family="Poppins, Segoe UI, sans-serif"
-        font-size="130"
+        font-size="120"
         font-weight="900"
         letter-spacing="3"
         fill="#ffffff">

@@ -1,0 +1,50 @@
+/* nightshade-theme.css */
+
+/* Define the base Nightshade colors using standard RGB/Hex for compatibility */
+:root {
+  /* BACKGROUNDS & SURFACES (Nightshade Palette) */
+  --nightshade-primary-dark: #121212; 
+  --nightshade-secondary-dark: #1E1E1E; 
+  --nightshade-tertiary-dark: #2C2C2C; 
+
+  /* TEXT & CONTENT */
+  --nightshade-text-light: #E0E0E0; 
+
+  /* ACCENT (Deep Violet) */
+  --nightshade-accent-main: #9B59B6; 
+  --nightshade-accent-hover: #AF7AC5; 
+
+  /* DANGER/ERROR */
+  --nightshade-danger-red: #E74C3C; 
+}
+
+/* 2. Override the framework's internal variables 
+   using the [data-theme=dark] selector for precision.
+*/
+[data-theme=dark],
+@media (prefers-color-scheme:dark){:root} /* Target default dark preference */
+{
+    /* Surfaces */
+    --color-base-100: var(--nightshade-primary-dark);
+    --color-base-200: var(--nightshade-secondary-dark);
+    --color-base-300: var(--nightshade-tertiary-dark);
+    
+    /* Text */
+    --color-base-content: var(--nightshade-text-light);
+
+    /* Primary Accent (Used by buttons, active states, etc.) */
+    --color-primary: var(--nightshade-accent-main);
+    --color-primary-content: #000000; /* Ensure black text on bright violet */
+
+    /* Neutral (Used by menus, tooltips) */
+    --color-neutral: var(--nightshade-tertiary-dark);
+    --color-neutral-content: var(--nightshade-text-light);
+
+    /* Error */
+    --color-error: var(--nightshade-danger-red);
+
+    /* You can override other components directly here too, e.g.: */
+    .modal-box {
+        border: 1px solid var(--nightshade-accent-main);
+    }
+}

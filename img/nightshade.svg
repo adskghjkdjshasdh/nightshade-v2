@@ -19,9 +19,9 @@
   </defs>
 
   <!-- Glow behind text -->
-  <text x="60" y="210"
+  <text x="20" y="210"
         font-family="Poppins, Segoe UI, sans-serif"
-        font-size="160"
+        font-size="130"
         font-weight="800"
         letter-spacing="3"
         fill="url(#neonTint)"
@@ -30,9 +30,9 @@
   </text>
 
   <!-- White foreground text -->
-  <text x="60" y="210"
+  <text x="20" y="210"
         font-family="Poppins, Segoe UI, sans-serif"
-        font-size="160"
+        font-size="130"
         font-weight="900"
         letter-spacing="3"
         fill="#ffffff">

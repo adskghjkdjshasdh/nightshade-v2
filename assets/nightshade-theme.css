@@ -1,50 +1,123 @@
-/* nightshade-theme.css */
+/* ================================
+   NIGHTSHADE THEME — GLOBAL STYLES
+   ================================ */
 
-/* ... (Your existing variable overrides are here) ... */
+/* Root color variables */
+:root {
+    --nightshade-bg: #0b0114; /* Deep black-violet */
+    --nightshade-surface: rgba(30, 0, 50, 0.45);
 
-/* --- GLOWING NEON TITLE STYLE --- */
+    --nightshade-text: #E0E0FF;
+    --nightshade-text-light: #F5F3FF;
+
+    --nightshade-accent-main: #7C3AED; /* Neon purple */
+    --nightshade-accent-soft: #A78BFA;
+    --nightshade-accent-cyan: #22D3EE;
+    --nightshade-accent-sky: #38BDF8;
+
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Global body styling */
+body {
+    background: var(--nightshade-bg);
+    color: var(--nightshade-text);
+    font-family: var(--font-sans);
+    line-height: 1.65;
+    margin: 0;
+    padding: 0;
+}
+
+/* Card container styling */
+.nightshade-card {
+    background: var(--nightshade-surface);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px rgba(124, 58, 237, 0.35);
+}
+
+/* Accent section headers */
+.section-title {
+    border-left: 4px solid var(--nightshade-accent-sky);
+    padding-left: 1rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--nightshade-accent-sky);
+    margin-top: 2rem;
+}
+
+/* Regular subtitle headers with glow */
+.nightshade-heading {
+    color: var(--nightshade-accent-soft);
+    font-size: 2rem;
+    text-shadow: 0 0 10px var(--nightshade-accent-main), 0 0 25px var(--nightshade-accent-main);
+    border-bottom: 2px solid #4C1D95;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+}
+
+/* Highlighted key-terms (cyan) */
+.key-term {
+    color: var(--nightshade-accent-cyan);
+    font-weight: 600;
+    text-shadow: 0 0 5px rgba(34, 211, 238, 0.45);
+}
+
+/* ================================
+      NEON GLOWING TITLE (you asked for)
+   ================================ */
+
 .nightshade-title {
-    /* Base Typography */
-    font-family: var(--font-mono); /* Optional: Use monospace for a tech look */
-    font-size: 3rem; 
+    font-family: var(--font-mono);
+    font-size: 3.2rem;
     font-weight: 700;
     text-align: center;
-    padding: 1.5rem 0;
-    margin: 0;
+    margin: 2rem 0 1rem 0;
+    color: var(--nightshade-text-light);
 
-    /* Base Color: Use a slightly lighter version of the accent or pure white */
-    color: var(--nightshade-text-light); 
-    
-    /* The Magic: Smooth, Multi-Layered Text Shadow for Glow */
-    text-shadow: 
-        /* Inner soft glow (close to the text) */
+    text-shadow:
         0 0 5px var(--nightshade-accent-main),
-        /* Medium glow (spread) */
         0 0 15px var(--nightshade-accent-main),
-        /* Outer wider, diffused glow */
         0 0 30px var(--nightshade-accent-main),
         0 0 50px var(--nightshade-accent-main),
-        /* Stronger core color (optional, for pop) */
-        0 0 7px #fff; 
-    
-    /* Optional: Slight animation for pulsing effect */
+        0 0 7px #fff;
+
     animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
-/* Define the subtle pulsing glow animation */
 @keyframes neon-glow {
     from {
-        text-shadow: 
+        text-shadow:
             0 0 5px var(--nightshade-accent-main),
             0 0 15px var(--nightshade-accent-main),
             0 0 30px var(--nightshade-accent-main),
             0 0 50px var(--nightshade-accent-main);
     }
     to {
-        text-shadow: 
+        text-shadow:
             0 0 3px var(--nightshade-accent-main),
             0 0 10px var(--nightshade-accent-main),
             0 0 25px var(--nightshade-accent-main),
             0 0 40px var(--nightshade-accent-main);
     }
 }
+
+/* ================================
+        MISC UTILITIES
+   ================================ */
+
+.glow-box {
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+.glow-text {
+    text-shadow: 0 0 10px var(--nightshade-accent-main);
+}
+
+.border-glow {
+    border: 1px solid var(--nightshade-accent-main);
+    box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+}
+

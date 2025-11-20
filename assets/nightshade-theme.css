@@ -1,50 +1,50 @@
 /* nightshade-theme.css */
 
-/* Define the base Nightshade colors using standard RGB/Hex for compatibility */
-:root {
-  /* BACKGROUNDS & SURFACES (Nightshade Palette) */
-  --nightshade-primary-dark: #121212; 
-  --nightshade-secondary-dark: #1E1E1E; 
-  --nightshade-tertiary-dark: #2C2C2C; 
+/* ... (Your existing variable overrides are here) ... */
 
-  /* TEXT & CONTENT */
-  --nightshade-text-light: #E0E0E0; 
+/* --- GLOWING NEON TITLE STYLE --- */
+.nightshade-title {
+    /* Base Typography */
+    font-family: var(--font-mono); /* Optional: Use monospace for a tech look */
+    font-size: 3rem; 
+    font-weight: 700;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin: 0;
 
-  /* ACCENT (Deep Violet) */
-  --nightshade-accent-main: #9B59B6; 
-  --nightshade-accent-hover: #AF7AC5; 
-
-  /* DANGER/ERROR */
-  --nightshade-danger-red: #E74C3C; 
+    /* Base Color: Use a slightly lighter version of the accent or pure white */
+    color: var(--nightshade-text-light); 
+    
+    /* The Magic: Smooth, Multi-Layered Text Shadow for Glow */
+    text-shadow: 
+        /* Inner soft glow (close to the text) */
+        0 0 5px var(--nightshade-accent-main),
+        /* Medium glow (spread) */
+        0 0 15px var(--nightshade-accent-main),
+        /* Outer wider, diffused glow */
+        0 0 30px var(--nightshade-accent-main),
+        0 0 50px var(--nightshade-accent-main),
+        /* Stronger core color (optional, for pop) */
+        0 0 7px #fff; 
+    
+    /* Optional: Slight animation for pulsing effect */
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
-/* 2. Override the framework's internal variables 
-   using the [data-theme=dark] selector for precision.
-*/
-[data-theme=dark],
-@media (prefers-color-scheme:dark){:root} /* Target default dark preference */
-{
-    /* Surfaces */
-    --color-base-100: var(--nightshade-primary-dark);
-    --color-base-200: var(--nightshade-secondary-dark);
-    --color-base-300: var(--nightshade-tertiary-dark);
-    
-    /* Text */
-    --color-base-content: var(--nightshade-text-light);
-
-    /* Primary Accent (Used by buttons, active states, etc.) */
-    --color-primary: var(--nightshade-accent-main);
-    --color-primary-content: #000000; /* Ensure black text on bright violet */
-
-    /* Neutral (Used by menus, tooltips) */
-    --color-neutral: var(--nightshade-tertiary-dark);
-    --color-neutral-content: var(--nightshade-text-light);
-
-    /* Error */
-    --color-error: var(--nightshade-danger-red);
-
-    /* You can override other components directly here too, e.g.: */
-    .modal-box {
-        border: 1px solid var(--nightshade-accent-main);
+/* Define the subtle pulsing glow animation */
+@keyframes neon-glow {
+    from {
+        text-shadow: 
+            0 0 5px var(--nightshade-accent-main),
+            0 0 15px var(--nightshade-accent-main),
+            0 0 30px var(--nightshade-accent-main),
+            0 0 50px var(--nightshade-accent-main);
+    }
+    to {
+        text-shadow: 
+            0 0 3px var(--nightshade-accent-main),
+            0 0 10px var(--nightshade-accent-main),
+            0 0 25px var(--nightshade-accent-main),
+            0 0 40px var(--nightshade-accent-main);
     }
 }

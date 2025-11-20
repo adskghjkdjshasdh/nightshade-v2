@@ -1,74 +1,94 @@
 /* nightshade-theme.css */
 
-/* --- REQUIRED VARIABLES (customizable) --- */
+/* --- CORE VARIABLES (from your HTML theme) --- */
 :root {
-    --nightshade-bg: #0b0114;
-    --nightshade-text-light: #ffffff;
-    --nightshade-accent-main: #7C3AED;
+    --nightshade-bg: #0b0114;                    /* Deep void violet */
+    --nightshade-text-light: #E0E0FF;            /* Soft white/pale purple */
+    --nightshade-accent-main: #A78BFA;           /* Medium violet glow */
+    --nightshade-accent-strong: #7C3AED;         /* Bright purple glow */
+    --nightshade-cyan: #22D3EE;                  /* Neon cyan highlight */
+    --nightshade-sky: #38BDF8;                   /* Electric sky blue */
+    --nightshade-panel-bg: rgba(20, 0, 40, 0.45); /* Glass panel */
+    --nightshade-border-glow: rgba(124, 58, 237, 0.3);
     --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-main: 'Inter', sans-serif;
 }
 
-/* --- GLOBAL NIGHTSHADE LOOK --- */
+/* --- GLOBAL --- */
 body {
     background-color: var(--nightshade-bg);
     color: var(--nightshade-text-light);
-    font-family: 'Inter', sans-serif;
+    font-family: var(--font-main);
 }
 
-/* Optional: glassy panels */
+/* Glassy purple panels */
 .nightshade-panel {
-    background: rgba(20, 0, 40, 0.45);
-    border: 1px solid rgba(124, 58, 237, 0.3);
+    background: var(--nightshade-panel-bg);
+    border: 1px solid var(--nightshade-border-glow);
     border-radius: 0.75rem;
     padding: 1.5rem;
     backdrop-filter: blur(12px);
+    box-shadow: 0 0 18px rgba(124, 58, 237, 0.15);
 }
 
-/* --- NEON TITLE GLOW --- */
+/* Section titles (matching .section-title) */
+.nightshade-section-title {
+    border-left: 4px solid var(--nightshade-sky);
+    padding-left: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--nightshade-sky);
+}
+
+/* --- Glowing Header (matches .nightshade-heading) --- */
 .nightshade-title {
     font-family: var(--font-mono);
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 800;
     text-align: center;
     padding: 1.5rem 0;
     margin: 0;
-    color: var(--nightshade-text-light);
+    color: var(--nightshade-accent-main);
 
     text-shadow:
-        0 0 5px var(--nightshade-accent-main),
-        0 0 15px var(--nightshade-accent-main),
-        0 0 30px var(--nightshade-accent-main),
-        0 0 50px var(--nightshade-accent-main),
-        0 0 7px #fff;
+        0 0 10px var(--nightshade-accent-strong),
+        0 0 22px var(--nightshade-accent-strong),
+        0 0 35px var(--nightshade-accent-strong);
 
-    animation: neon-glow 1.5s ease-in-out infinite alternate;
+    animation: nightshade-pulse 1.7s ease-in-out infinite alternate;
 }
 
-/* --- Neon pulse animation --- */
-@keyframes neon-glow {
+/* Smooth neon glow */
+@keyframes nightshade-pulse {
     from {
         text-shadow:
-            0 0 5px var(--nightshade-accent-main),
-            0 0 15px var(--nightshade-accent-main),
-            0 0 30px var(--nightshade-accent-main),
-            0 0 50px var(--nightshade-accent-main);
+            0 0 12px var(--nightshade-accent-main),
+            0 0 26px var(--nightshade-accent-main),
+            0 0 40px var(--nightshade-accent-main);
     }
     to {
         text-shadow:
-            0 0 3px var(--nightshade-accent-main),
-            0 0 10px var(--nightshade-accent-main),
-            0 0 25px var(--nightshade-accent-main),
-            0 0 40px var(--nightshade-accent-main);
+            0 0 6px var(--nightshade-accent-main),
+            0 0 18px var(--nightshade-accent-main),
+            0 0 30px var(--nightshade-accent-main);
     }
 }
 
-/* --- Accent text --- */
+/* Cyan highlight text (for key-term) */
+.nightshade-cyan {
+    color: var(--nightshade-cyan);
+    text-shadow: 0 0 6px rgba(34, 211, 238, 0.5);
+    font-weight: 600;
+}
+
+/* Purple accent text */
 .nightshade-accent {
     color: var(--nightshade-accent-main);
     text-shadow: 0 0 8px var(--nightshade-accent-main);
 }
 
-/* --- Buttons --- */
+/* --- Buttons (matching HTML glow) --- */
 .nightshade-btn {
     background: rgba(124, 58, 237, 0.15);
     border: 1px solid rgba(124, 58, 237, 0.4);
@@ -76,6 +96,7 @@ body {
     border-radius: 0.5rem;
     font-weight: 600;
     transition: 0.12s ease;
+    color: var(--nightshade-text-light);
 }
 
 .nightshade-btn:hover {
@@ -83,7 +104,7 @@ body {
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
 }
 
-/* Inputs for proxy bars, search, etc. */
+/* Inputs (URL bar, search bar, etc.) */
 .nightshade-input {
     background: rgba(255,255,255,0.06);
     border: 1px solid rgba(124, 58, 237, 0.3);
@@ -95,4 +116,11 @@ body {
 .nightshade-input:focus {
     outline: none;
     box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
+
+/* Navbar glow bottom border */
+.nightshade-navbar {
+    border-bottom: 2px solid rgba(124, 58, 237, 0.3);
+    background: rgba(10, 0, 20, 0.55);
+    backdrop-filter: blur(10px);
 }

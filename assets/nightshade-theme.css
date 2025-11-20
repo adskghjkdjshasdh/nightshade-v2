@@ -1,80 +1,37 @@
-/* ================================
-   NIGHTSHADE THEME — GLOBAL STYLES
-   ================================ */
+/* nightshade-theme.css */
 
-/* Root color variables */
+/* --- REQUIRED VARIABLES (customizable) --- */
 :root {
-    --nightshade-bg: #0b0114; /* Deep black-violet */
-    --nightshade-surface: rgba(30, 0, 50, 0.45);
-
-    --nightshade-text: #E0E0FF;
-    --nightshade-text-light: #F5F3FF;
-
-    --nightshade-accent-main: #7C3AED; /* Neon purple */
-    --nightshade-accent-soft: #A78BFA;
-    --nightshade-accent-cyan: #22D3EE;
-    --nightshade-accent-sky: #38BDF8;
-
-    --font-sans: 'Inter', sans-serif;
-    --font-mono: 'JetBrains Mono', monospace;
+    --nightshade-bg: #0b0114;
+    --nightshade-text-light: #ffffff;
+    --nightshade-accent-main: #7C3AED;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* Global body styling */
+/* --- GLOBAL NIGHTSHADE LOOK --- */
 body {
-    background: var(--nightshade-bg);
-    color: var(--nightshade-text);
-    font-family: var(--font-sans);
-    line-height: 1.65;
-    margin: 0;
-    padding: 0;
+    background-color: var(--nightshade-bg);
+    color: var(--nightshade-text-light);
+    font-family: 'Inter', sans-serif;
 }
 
-/* Card container styling */
-.nightshade-card {
-    background: var(--nightshade-surface);
-    border: 1px solid rgba(124, 58, 237, 0.4);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 25px rgba(124, 58, 237, 0.35);
+/* Optional: glassy panels */
+.nightshade-panel {
+    background: rgba(20, 0, 40, 0.45);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    backdrop-filter: blur(12px);
 }
 
-/* Accent section headers */
-.section-title {
-    border-left: 4px solid var(--nightshade-accent-sky);
-    padding-left: 1rem;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--nightshade-accent-sky);
-    margin-top: 2rem;
-}
-
-/* Regular subtitle headers with glow */
-.nightshade-heading {
-    color: var(--nightshade-accent-soft);
-    font-size: 2rem;
-    text-shadow: 0 0 10px var(--nightshade-accent-main), 0 0 25px var(--nightshade-accent-main);
-    border-bottom: 2px solid #4C1D95;
-    padding-bottom: 0.5rem;
-    margin-top: 2rem;
-}
-
-/* Highlighted key-terms (cyan) */
-.key-term {
-    color: var(--nightshade-accent-cyan);
-    font-weight: 600;
-    text-shadow: 0 0 5px rgba(34, 211, 238, 0.45);
-}
-
-/* ================================
-      NEON GLOWING TITLE (you asked for)
-   ================================ */
-
+/* --- NEON TITLE GLOW --- */
 .nightshade-title {
     font-family: var(--font-mono);
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-weight: 700;
     text-align: center;
-    margin: 2rem 0 1rem 0;
+    padding: 1.5rem 0;
+    margin: 0;
     color: var(--nightshade-text-light);
 
     text-shadow:
@@ -87,6 +44,7 @@ body {
     animation: neon-glow 1.5s ease-in-out infinite alternate;
 }
 
+/* --- Neon pulse animation --- */
 @keyframes neon-glow {
     from {
         text-shadow:
@@ -104,20 +62,37 @@ body {
     }
 }
 
-/* ================================
-        MISC UTILITIES
-   ================================ */
-
-.glow-box {
-    box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+/* --- Accent text --- */
+.nightshade-accent {
+    color: var(--nightshade-accent-main);
+    text-shadow: 0 0 8px var(--nightshade-accent-main);
 }
 
-.glow-text {
-    text-shadow: 0 0 10px var(--nightshade-accent-main);
+/* --- Buttons --- */
+.nightshade-btn {
+    background: rgba(124, 58, 237, 0.15);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    padding: 0.6rem 1.2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: 0.12s ease;
 }
 
-.border-glow {
-    border: 1px solid var(--nightshade-accent-main);
-    box-shadow: 0 0 12px rgba(124, 58, 237, 0.4);
+.nightshade-btn:hover {
+    background: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
 }
 
+/* Inputs for proxy bars, search, etc. */
+.nightshade-input {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(124, 58, 237, 0.3);
+    padding: 0.55rem 1rem;
+    border-radius: 0.45rem;
+    color: var(--nightshade-text-light);
+}
+
+.nightshade-input:focus {
+    outline: none;
+    box-shadow: 0 0 15px rgba(124, 58, 237, 0.4);
+}
